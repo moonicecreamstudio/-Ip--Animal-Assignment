@@ -20,6 +20,7 @@ public class ToggleOnPlayerJoin : MonoBehaviour
         playerInputManager.onPlayerJoined -= ToggleThis;
     }
 
+    // Hides and unhides camera when player joins via controller.
     private void ToggleThis(PlayerInput player)
     {
         this.gameObject.SetActive(false);

@@ -7,20 +7,18 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     //input fields
-    //private ThirdPersonActionsAsset playerActionsAsset;
     private InputActionAsset inputAsset;
     private InputActionMap player;
-    private InputAction move;
+    private InputAction rotate;
+    private InputAction accelerate;
+    private InputAction deaccelerate;
+
+    private float accelerationSpeed = 5f;
+    private float deaccelerationSpeed = 1f;
+    private float turnSpeed = 2f;
 
     //movement fields
     private Rigidbody rb;
-    [SerializeField]
-    private float movementForce = 1f;
-    [SerializeField]
-    private float jumpForce = 5f;
-    [SerializeField]
-    private float maxSpeed = 5f;
-    private Vector3 forceDirection = Vector3.zero;
 
     [SerializeField]
     private Camera playerCamera;
@@ -36,7 +34,9 @@ public class PlayerController : MonoBehaviour
     }
     private void OnEnable()
     {
-        move = player.FindAction("Move");
+        rotate = player.FindAction("Rotate");
+        accelerate = player.FindAction("Accelerate");
+        deaccelerate = player.FindAction("Deaccelerate");
         player.Enable();
     }
 
@@ -45,11 +45,26 @@ public class PlayerController : MonoBehaviour
         player.Disable();
     }
 
+    private void Update()
+    {
+        rb.AddForce(transform.forward * accelerate.ReadValue<float>() * accelerationSpeed);
+        rb.AddForce(-transform.forward * deaccelerate.ReadValue<float>() * accelerationSpeed);
+
+
+    }
+
     private void FixedUpdate()
     {
-        transform.Translate(new Vector3(move.ReadValue<Vector2>().x, 0, move.ReadValue<Vector2>().y) * maxSpeed * Time.deltaTime);
+        Quaternion deltaRotation = Quaternion.Euler(0, rotate.ReadValue<Vector2>().x * turnSpeed, 0);
 
-        //LookAt();
+        rb.MoveRotation(rb.rotation * deltaRotation);
+
+        Vector3 localVelocity = transform.InverseTransformDirection(rb.velocity);
+        localVelocity.x = 0;
+        rb.velocity = transform.TransformDirection(localVelocity);
+
+
+        //transform.Translate(new Vector3(rotate.ReadValue<Vector2>().x, 0, rotate.ReadValue<Vector2>().y) * maxSpeed * Time.deltaTime);
 
         //forceDirection += move.ReadValue<Vector2>().x * movementForce;
         //forceDirection += move.ReadValue<Vector2>().y * movementForce;
@@ -66,25 +81,9 @@ public class PlayerController : MonoBehaviour
         //    rb.velocity = horizontalVelocity.normalized * maxSpeed + Vector3.up * rb.velocity.y;
     }
 
-    //private void LookAt()
-    //{
-    //    Vector3 direction = rb.velocity;
-    //    direction.y = 0f;
+    private void Move()
+    {
 
-    //    if (move.ReadValue<Vector2>().sqrMagnitude > 0.1f && direction.sqrMagnitude > 0.1f)
-    //        this.rb.rotation = Quaternion.LookRotation(direction, Vector3.up);
-    //    else
-    //        rb.angularVelocity = Vector3.zero;
-    //}
-
-
-    // Update is called once per frame
-    //void Update()
-    //{
-    //    transform.Translate(new Vector3(movementInput.x, 0, movementInput.y) * speed * Time.deltaTime);
-    //}
-
-    //public void OnMove(InputAction.CallbackContext ctx) => movementInput = ctx.ReadValue<Vector2>();
-
+    }
 
 }

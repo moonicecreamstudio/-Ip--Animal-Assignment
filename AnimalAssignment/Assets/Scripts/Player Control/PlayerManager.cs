@@ -51,12 +51,14 @@ public class PlayerManager : MonoBehaviour
         // Set the color of the player
         if (players.Count == 1)
         {
-            playerParent.GetComponentInChildren<MeshRenderer>().material = player1Color;
+            player.GetComponent<MeshRenderer>().material = player1Color;
+            player.gameObject.tag = "Player1";
         }
 
         if (players.Count == 2)
         {
-            playerParent.GetComponentInChildren<MeshRenderer>().material = player2Color;
+            player.GetComponent<MeshRenderer>().material = player2Color;
+            player.gameObject.tag = "Player2";
         }
 
     }
