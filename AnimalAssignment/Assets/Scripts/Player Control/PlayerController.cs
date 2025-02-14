@@ -47,9 +47,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        rb.AddForce(transform.forward * accelerate.ReadValue<float>() * accelerationSpeed);
+        rb.AddForce(transform.forward * accelerate.ReadValue<float>() * (accelerationSpeed));
+        Debug.Log("accelerate: " + accelerate.ReadValue<float>());
+        Debug.Log("acceleration: " + accelerationSpeed);
         rb.AddForce(-transform.forward * deaccelerate.ReadValue<float>() * accelerationSpeed);
-
 
     }
 
