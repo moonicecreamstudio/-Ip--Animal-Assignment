@@ -15,11 +15,13 @@ public class PlayerManager : MonoBehaviour
     private List<LayerMask> playerLayers;
 
     private PlayerInputManager playerInputManager;
+    GameObject carBody;
 
     private void Awake()
     {
         playerInputManager = FindObjectOfType<PlayerInputManager>();
     }
+
 
     private void OnEnable()
     {
@@ -47,19 +49,36 @@ public class PlayerManager : MonoBehaviour
         //add the layer
         playerParent.GetComponentInChildren<Camera>().cullingMask |= 1 << layerToAdd;
 
-        
+
         // Set the color of the player
+
         if (players.Count == 1)
         {
-            player.GetComponent<MeshRenderer>().material = player1Color;
-            player.gameObject.tag = "Player1";
+            player.GetComponentInChildren<MeshRenderer>().material = player1Color;
+
+            foreach (Transform t in player.transform)
+            {
+                if (t.gameObject.tag == "Player")
+                {
+                    t.gameObject.tag = "Player1";
+                }
+            }
+            //player.GetComponentInChildren<GameObject>().gameObject.tag = "Player1";
         }
 
         if (players.Count == 2)
         {
-            player.GetComponent<MeshRenderer>().material = player2Color;
-            player.gameObject.tag = "Player2";
-        }
+            player.GetComponentInChildren<MeshRenderer>().material = player2Color;
 
+            foreach (Transform t in player.transform)
+            {
+                if (t.gameObject.tag == "Player")
+                {
+                    t.gameObject.tag = "Player2";
+                }
+            }
+            //player.GetComponentInChildren<GameObject>().gameObject.tag = "Player2";
+        }
     }
+
 }
