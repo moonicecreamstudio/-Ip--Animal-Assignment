@@ -54,7 +54,6 @@ public class PlayerManager : MonoBehaviour
 
         if (players.Count == 1)
         {
-            player.GetComponentInChildren<MeshRenderer>().material = player1Color;
 
             foreach (Transform t in player.transform)
             {
@@ -62,19 +61,28 @@ public class PlayerManager : MonoBehaviour
                 {
                     t.gameObject.tag = "Player1";
                 }
+
+                if (t.GetComponent<MeshRenderer>() != null && t.gameObject.tag != "WheelModel")
+                {
+                    t.GetComponentInChildren<MeshRenderer>().material = player1Color;
+                }
+
             }
             //player.GetComponentInChildren<GameObject>().gameObject.tag = "Player1";
         }
 
         if (players.Count == 2)
         {
-            player.GetComponentInChildren<MeshRenderer>().material = player2Color;
 
             foreach (Transform t in player.transform)
             {
                 if (t.gameObject.tag == "Player")
                 {
                     t.gameObject.tag = "Player2";
+                }
+                if (t.GetComponent<MeshRenderer>() != null && t.gameObject.tag != "WheelModel")
+                {
+                    t.GetComponentInChildren<MeshRenderer>().material = player2Color;
                 }
             }
             //player.GetComponentInChildren<GameObject>().gameObject.tag = "Player2";

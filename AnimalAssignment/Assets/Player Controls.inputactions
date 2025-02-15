@@ -6,9 +6,18 @@
             "id": "02f45f1a-a7e4-4845-8304-ae0fbeea54b7",
             "actions": [
                 {
-                    "name": "Rotate",
+                    "name": "Rotate Wheels",
                     "type": "Value",
                     "id": "e0ad2554-7adf-4547-92f6-3f72600096c1",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Rotate Top Body",
+                    "type": "Value",
+                    "id": "a12ba6d4-1a77-417f-80ed-4777d737a515",
                     "expectedControlType": "Vector3",
                     "processors": "",
                     "interactions": "",
@@ -31,6 +40,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Back View",
+                    "type": "Button",
+                    "id": "e67551d5-c1c8-41f9-a50f-9bc22abcc23d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "1b353670-b4cd-482e-875a-5de7986a15d6",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -41,7 +68,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate",
+                    "action": "Rotate Wheels",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -52,7 +79,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate",
+                    "action": "Rotate Wheels",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -63,7 +90,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate",
+                    "action": "Rotate Wheels",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -74,7 +101,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate",
+                    "action": "Rotate Wheels",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -85,7 +112,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate",
+                    "action": "Rotate Wheels",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -96,7 +123,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate",
+                    "action": "Rotate Wheels",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -107,7 +134,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate",
+                    "action": "Rotate Wheels",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -152,6 +179,94 @@
                     "processors": "",
                     "groups": "",
                     "action": "Deaccelerate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bffa92f6-30c0-4e54-bf1f-da1f62b48c81",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back View",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9ea8f68a-9769-4d78-af4d-7419582cbabe",
+                    "path": "<XInputController>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Back View",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "65015d7a-6425-4ec5-942c-8c463b6a611d",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate Top Body",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "194d528d-4910-4348-a77c-00645969cad0",
+                    "path": "<XInputController>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotate Top Body",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e14303f1-d07a-4873-96f7-a6a47c162313",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "61284ccf-7ad5-414b-bfd9-a629a2a37302",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c6100c56-7620-4a10-8f32-91b762325991",
+                    "path": "<Gamepad>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f2fbf357-0913-4e08-8389-1cd5db681522",
+                    "path": "<XInputController>/leftShoulder",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
