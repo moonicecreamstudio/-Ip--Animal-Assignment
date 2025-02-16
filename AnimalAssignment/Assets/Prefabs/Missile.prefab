@@ -5017,6 +5017,8 @@ MonoBehaviour:
   missile: {fileID: 0}
   rb: {fileID: 0}
   speed: 50
+  timer: 0
+  despawnTimer: 11
 --- !u!54 &6730742260853908614
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -26,7 +26,6 @@ namespace NodeCanvas.Tasks.Actions
         //EndAction can be called from anywhere.
         protected override void OnExecute()
         {
-            bossCurrentHealth.value -= 10;
             isHunting.value = true;
             player1 = GameObject.FindGameObjectWithTag("Player1");
         }
