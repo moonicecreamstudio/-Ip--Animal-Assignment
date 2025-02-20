@@ -1,16 +1,17 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections.Generic;
+
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class BossHealthAT : ActionTask {
-
-        public Slider bossHealth;
-        public BBParameter<float> bossCurrentHealth;
-        public BBParameter<float> bossMaxHealth;
-        public BBParameter<Vector3> bossHeadLocation;
+	public class PathAT : ActionTask {
+        public BBParameter<Vector3> targetPosition;
+        public BBParameter<List<Vector3>> targetList; // Took 40 minutes to find this
+        public Transform targetTransform;
+		public Vector3 currentTarget;
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -22,13 +23,13 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
+			//targetTransform.position = targetList[3].value;
+
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-            bossHeadLocation.value = agent.transform.position;
-            bossHealth.value = (bossCurrentHealth.value / bossMaxHealth.value) * 100;
-			//Debug.Log(bossHealth.value);
+            targetPosition.value = targetTransform.position;
         }
 
 		//Called when the task is disabled.
