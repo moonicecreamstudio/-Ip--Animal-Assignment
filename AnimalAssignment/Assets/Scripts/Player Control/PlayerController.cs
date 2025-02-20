@@ -125,20 +125,22 @@ private void FixedUpdate()
 
     private void Aim()
     {
-        if (rotateTopBody.ReadValue<Vector2>().x < 0.05 && rotateTopBody.ReadValue<Vector2>().x > -0.05 ||
-            rotateTopBody.ReadValue<Vector2>().y < 0.05 && rotateTopBody.ReadValue<Vector2>().y > -0.05)
-        {
+        //if (rotateTopBody.ReadValue<Vector2>().x < 0.05 && rotateTopBody.ReadValue<Vector2>().x > -0.05 ||
+        //    rotateTopBody.ReadValue<Vector2>().y < 0.05 && rotateTopBody.ReadValue<Vector2>().y > -0.05)
+        //{
 
-        }
-        else
-        {
-            desiredAngle = Mathf.Atan2(rotateTopBody.ReadValue<Vector2>().y, -rotateTopBody.ReadValue<Vector2>().x) * Mathf.Rad2Deg;
-        }
+        //}
+        //else
+        //{
+        //    desiredAngle = Mathf.Atan2(rotateTopBody.ReadValue<Vector2>().y, -rotateTopBody.ReadValue<Vector2>().x) * Mathf.Rad2Deg;
+        //}
 
         //Vector3 deltaRotation = new Vector3(0, rotateTopBody.ReadValue<Vector2>().x * turnSpeed * Time.deltaTime, 0);
-        desiredAngleUp = desiredAngle - 90;
+        Vector3 deltaRotation = new Vector3(0, rotateTopBody.ReadValue<Vector2>().x * turnSpeed * Time.deltaTime, 0);
+        topBody.transform.Rotate(deltaRotation);
+        //desiredAngleUp = desiredAngle - 90;
 
-        topBody.transform.localRotation = Quaternion.Euler(0, desiredAngleUp, 0);
+        //topBody.transform.localRotation = Quaternion.Euler(0, desiredAngleUp, 0);
 
         //float angle = Mathf.MoveTowardsAngle(topBody.transform.rotation.y, desiredAngleUp, turnSpeed * Time.deltaTime);
         //topBody.transform.localRotation = Quaternion.Euler(0, angle, 0);
