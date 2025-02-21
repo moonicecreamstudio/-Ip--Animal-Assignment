@@ -9584,7 +9584,7 @@ Transform:
   m_GameObject: {fileID: 387358940}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.19203782, z: -0, w: 0.9813875}
-  m_LocalPosition: {x: -235.1304, y: 0.55, z: -179.9038}
+  m_LocalPosition: {x: -399.1828, y: 324.84793, z: -276.66803}
   m_LocalScale: {x: 102.69403, y: 0.05, z: 251.64598}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -52893,8 +52893,8 @@ MonoBehaviour:
     _version: 3.31
     _category: 
     _comments: 
-    _translation: {x: 55, y: 273}
-    _zoomFactor: 0.39720404
+    _translation: {x: 123.7265, y: 281.4825}
+    _zoomFactor: 0.39481452
   _firstActivation: 0
   _enableAction: 0
   _disableAction: 0
