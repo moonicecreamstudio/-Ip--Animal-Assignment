@@ -1,17 +1,16 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
 using UnityEngine;
-using UnityEngine.EventSystems;
+
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class DamageAT : ActionTask {
+	public class FlickerAT : ActionTask {
 
-		public BBParameter<GameObject> bossHead;
-		public Material hurt;
+        public BBParameter<GameObject> bossHead;
+        public Material hurt;
         public Material normal;
-        public BBParameter<float> bossCurrentHealth;
-		public float timer;
+		public bool flicker;
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -22,10 +21,17 @@ namespace NodeCanvas.Tasks.Actions {
 		//This is called once each time the task is enabled.
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
-		protected override void OnExecute() {
-            bossHead.value.GetComponent<MeshRenderer>().material = hurt;
-            bossCurrentHealth.value -= 5;
-		}
+		protected override void OnExecute()
+		{
+			if (flicker == true)
+			{
+				bossHead.value.GetComponent<MeshRenderer>().material = hurt;
+			}
+            if (flicker == false)
+            {
+                bossHead.value.GetComponent<MeshRenderer>().material = normal;
+            }
+        }
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {

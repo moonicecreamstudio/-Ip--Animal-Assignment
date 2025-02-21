@@ -16,10 +16,13 @@ public class PlayerController : MonoBehaviour
     private InputAction deaccelerate;
     private InputAction backView;
     private InputAction shoot;
+    private InputAction respawn;
 
     //private float accelerationSpeed = 5f;
     //private float deaccelerationSpeed = 1f;
     //private float turnSpeed = 2f;
+
+    public GameObject respawnPoint;
 
     // Movement
     private Rigidbody rb;
@@ -69,6 +72,7 @@ public class PlayerController : MonoBehaviour
         deaccelerate = player.FindAction("Deaccelerate");
         backView = player.FindAction("Back View");
         shoot = player.FindAction("Shoot");
+        respawn = player.FindAction("Respawn");
         player.Enable();
     }
 
@@ -89,6 +93,12 @@ public class PlayerController : MonoBehaviour
                 Instantiate(missile, new Vector3(launcher.transform.position.x, launcher.transform.position.y, launcher.transform.position.z), launcher.transform.rotation);
                 missileFired = true;
             }
+        }
+
+        // Reset position of vehicle
+        if (respawn.ReadValue<float>() == 1)
+        {
+            transform.SetPositionAndRotation(new Vector3(0, 5, 0), Quaternion.Euler(new Vector3(0, 0, 0)));
         }
 
         if (missileFired == true)
@@ -226,7 +236,6 @@ private void FixedUpdate()
     //Vector3 localVelocity = transform.InverseTransformDirection(rb.velocity);
     //localVelocity.x = 0;
     //rb.velocity = transform.TransformDirection(localVelocity);
-
 
     //transform.Translate(new Vector3(rotate.ReadValue<Vector2>().x, 0, rotate.ReadValue<Vector2>().y) * maxSpeed * Time.deltaTime);
 

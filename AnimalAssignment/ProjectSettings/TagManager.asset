@@ -8,6 +8,7 @@ TagManager:
   - Player2
   - WheelModel
   - Missile
+  - SnakeHead
   layers:
   - Default
   - TransparentFX

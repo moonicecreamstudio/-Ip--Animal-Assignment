@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f945e777233a59f4aba40aeca29093a6, type: 3}
   m_Name: FSM
   m_EditorClassIdentifier: 
-  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[],"connections":[],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
-  _objectReferences: []
+  _serializedGraph: '{"type":"NodeCanvas.StateMachines.FSM","nodes":[{"_actionList":{"executionMode":1,"actions":[{"bossHead":{"_name":"bossHead","_targetVariableID":"9e506e6c-53b4-46d9-afdc-65125b0a960b"},"damage":5.0,"hurt":1,"normal":2,"bossCurrentHealth":{"_name":"bossCurrentHealth","_targetVariableID":"da91eb97-12e1-4a3b-abc8-e63cf2b9edf8"},"$type":"NodeCanvas.Tasks.Actions.DamageAT"}]},"_color":{"r":1.0,"g":0.6241763,"a":1.0},"_name":"Damage","_position":{"x":747.0,"y":-127.0},"$type":"NodeCanvas.StateMachines.ActionState","$id":"0"},{"_actionList":{"executionMode":1,"actions":[{"bossHead":{"_name":"bossHead","_targetVariableID":"9e506e6c-53b4-46d9-afdc-65125b0a960b"},"hurt":1,"normal":2,"flicker":true,"$type":"NodeCanvas.Tasks.Actions.FlickerAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":924.8787,"y":2.959596},"$type":"NodeCanvas.StateMachines.ActionState","$id":"1"},{"_actionList":{"executionMode":1,"actions":[{"bossHead":{"_name":"bossHead","_targetVariableID":"9e506e6c-53b4-46d9-afdc-65125b0a960b"},"hurt":1,"normal":2,"$type":"NodeCanvas.Tasks.Actions.FlickerAT"}]},"_color":{"g":1.0,"b":0.2750001,"a":1.0},"_position":{"x":1052.196,"y":93.05924},"$type":"NodeCanvas.StateMachines.ActionState","$id":"2"},{"_actionList":{"executionMode":1,"actions":[{"bossHead":{"_name":"bossHead","_targetVariableID":"9e506e6c-53b4-46d9-afdc-65125b0a960b"},"hurt":1,"normal":2,"flicker":true,"$type":"NodeCanvas.Tasks.Actions.FlickerAT"}]},"_color":{"r":1.0,"g":0.42,"b":0.32,"a":1.0},"_position":{"x":1172.546,"y":180.6333},"$type":"NodeCanvas.StateMachines.ActionState","$id":"3"},{"_actionList":{"executionMode":1,"actions":[{"bossHead":{"_name":"bossHead","_targetVariableID":"9e506e6c-53b4-46d9-afdc-65125b0a960b"},"hurt":1,"normal":2,"$type":"NodeCanvas.Tasks.Actions.FlickerAT"}]},"_color":{"g":0.6862745,"b":0.1882353,"a":1.0},"_position":{"x":1300.533,"y":262.7222},"$type":"NodeCanvas.StateMachines.ActionState","$id":"4"}],"connections":[{"_sourceNode":{"$ref":"0"},"_targetNode":{"$ref":"1"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"1"},"_targetNode":{"$ref":"2"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"NodeCanvas.StateMachines.FSMConnection"},{"_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"NodeCanvas.StateMachines.FSMConnection"}],"canvasGroups":[],"localBlackboard":{"_variables":{}}}'
+  _objectReferences:
+  - {fileID: 0}
+  - {fileID: 2100000, guid: d3197ff11f3e6f845a501faf36ab514c, type: 2}
+  - {fileID: 2100000, guid: 5e6febab25253ef478aa39c9313532ac, type: 2}
   _graphSource:
     _version: 3.31
     _category: 
     _comments: 
-    _translation: {x: 76, y: 250}
-    _zoomFactor: 0.60723025
+    _translation: {x: -307.15262, y: 381.31808}
+    _zoomFactor: 0.66727084
   _haltSerialization: 0
   _externalSerializationFile: {fileID: 0}

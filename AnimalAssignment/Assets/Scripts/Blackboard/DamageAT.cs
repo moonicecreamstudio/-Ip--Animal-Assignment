@@ -1,17 +1,18 @@
 using NodeCanvas.Framework;
 using ParadoxNotion.Design;
-using System.Collections;
 using UnityEngine;
-using System.Collections.Generic;
-
+using UnityEngine.EventSystems;
 
 namespace NodeCanvas.Tasks.Actions {
 
-	public class PathAT : ActionTask {
-        public BBParameter<Vector3> targetPosition;
-        public BBParameter<List<Vector3>> targetList; // Took 40 minutes to find this
-        public Transform targetTransform;
-		public Vector3 currentTarget;
+	public class DamageAT : ActionTask {
+
+		public BBParameter<GameObject> bossHead;
+		public float damage;
+		public Material hurt;
+        public Material normal;
+        public BBParameter<float> bossCurrentHealth;
+		public float timer;
 
         //Use for initialization. This is called only once in the lifetime of the task.
         //Return null if init was successfull. Return an error string otherwise
@@ -23,13 +24,13 @@ namespace NodeCanvas.Tasks.Actions {
 		//Call EndAction() to mark the action as finished, either in success or failure.
 		//EndAction can be called from anywhere.
 		protected override void OnExecute() {
-			//targetTransform.position = targetList[3].value;
-
+            bossHead.value.GetComponent<MeshRenderer>().material = hurt;
+            bossCurrentHealth.value -= damage;
 		}
 
 		//Called once per frame while the action is active.
 		protected override void OnUpdate() {
-            targetPosition.value = targetTransform.position;
+            EndAction(true);
         }
 
 		//Called when the task is disabled.

@@ -9,6 +9,8 @@ namespace NodeCanvas.Tasks.Actions
     public class Hunt2AT : ActionTask
     {
         public BBParameter<Vector3> targetPosition;
+        public BBParameter<float> bossCurrentHealth;
+        public BBParameter<bool> isHunting;
         public GameObject player2;
 
 
@@ -24,6 +26,7 @@ namespace NodeCanvas.Tasks.Actions
         //EndAction can be called from anywhere.
         protected override void OnExecute()
         {
+            isHunting.value = true;
             player2 = GameObject.FindGameObjectWithTag("Player2");
         }
 
@@ -36,7 +39,7 @@ namespace NodeCanvas.Tasks.Actions
         //Called when the task is disabled.
         protected override void OnStop()
         {
-
+            isHunting.value = false;
         }
 
         //Called when the task is paused.
